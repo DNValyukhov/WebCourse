@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="title" content="Элементы форм в HTML">
+    <meta name="description" content="Домашнее задание. Страница с формой, в которой есть элементы: текстовые поля ввода,
+                многострочные поля ввода, чекбоксы, радио-баттоны, выпадающие списки с единичным и множественным выбором,
+                кнопка, ссылка на страницу 2">
+    <meta name="keywords" content="текстовые поля ввода, многострочные поля ввода, чекбоксы, радио-баттоны, выпадающие
+                списки с единичным и множественным выбором, кнопка, ссылка на другую страницу, text, password, radio-buttons,
+                checkbox, submit, file, hidden">
+    <title>Заявка на участие в выставке кошек</title>
+</head>
+<body>
+    <h1>Заявка на участие в выставке кошек</h1>
+    <p>Пожалуйста, заполните краткую анкету для участия в выставке</p>
+    <br>
+    <form enctype="multipart/form-data" method="post">
+        <label for="pet_owner_name">Имя владельца питомца</label>
+        <input type="text" id="pet_owner_name" name="petOwnerName" placeholder="Имя владельца">
+        <br>
+        <br>
+        <label for="pet_nickname">Кличка кота/кошки&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="text" id="pet_nickname" name="petNickname" placeholder="Кличка">
+        <br>
+        <br>
+        <label for="sex">Пол питомца&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <select name="sex" id="sex">
+            <option selected disabled>Выберите пол питомца</option>
+            <option value="0">кот</option>
+            <option value="1">кошка</option>
+        </select>
+        <br>
+        <br>
+        <p>Укажите возраст вашего питомца</p>
+        <label><input type="radio" value="1" name="age">от 0 до 1 года</label>
+        <br><label><input type="radio" value="2" name="age">от 1 до 7 лет</label>
+        <br><label><input type="radio" value="3" name="age">от 7 до 12 лет</label>
+        <br><label><input type="radio" value="4" name="age">старше 12 лет</label>
+        <br>
+        <br>
+        <p>В выставках какого уровня вы принимали участие?</p>
+        <label><input type="checkbox" value="0" name="exhibitions">Любительский уровень</label>
+        <br><label><input type="checkbox" value="1" name="exhibitions">Городской уровень</label>
+        <br><label><input type="checkbox" value="2" name="exhibitions">Областной уровень</label>
+        <br><label><input type="checkbox" value="3" name="exhibitions">Федеральный уровень</label>
+        <br><label><input type="checkbox" value="4" name="exhibitions">Международный уровень</label>
+        <br>
+        <br>
+        <label for="pet_food_brands">Корма каких из перечисленных ниже брендов вы покупаете?</label>
+        <br>Удерживая клавишу "Ctrl" вы можете выбрать несколько вариантов.
+        <br>
+        <br>
+        <select id="pet_food_brands" name="petFoodMakers" multiple>
+            <option selected value="0"></option>
+            <option value="1">Royal Canin</option>
+            <option value="2">Perfect Fit</option>
+            <option value="3">Whiskas</option>
+            <option value="4">Sheba</option>
+            <option value="5">Kitekat</option>
+        </select>
+        <br>
+        <br>
+        <p><label for="pet_features">Расскажите о необычных способностях вашего питомца</label></p>
+        <p><textarea name="petFeatures" id="pet_features" rows="7" cols="50"></textarea></p>
+        <label for="file">Вы можете выслать нам фото вашего любимца</label>
+        <br><input type="file" id="file" name="foto" size="100">
+        <br>
+        <br>
+        <br>
+        <button type="submit"><img src="https://img.freepik.com/free-vector/paw-print-gradient-blue_78370-7636.jpg?
+                semt=ais_hybrid" width="30" height="30" style="vertical-align: middle" alt="Лапа кошки">
+                Отправить данные организаторам выставки</button>
+        <br>
+        <br>
+        <button type="reset"><img src="https://s3.stroi-news.ru/img/krestik-kartinki-1.png" width="30" height="30"
+                                  style="vertical-align: middle" alt="Лапа кошки">Очистить форму заявки</button>
+    </form>
+    <br>
+    <br>
+    <a href="index_2.html">Перейти на партнёрскую страницу</a>
+    <br>
+    <br>
+</body>
+</html>
