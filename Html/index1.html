@@ -3,12 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="title" content="Элементы форм в HTML">
-    <meta name="description" content="Страница с формой, в которой есть элементы: текстовые поля ввода,
-                многострочные поля ввода, чекбоксы, радио-баттоны, выпадающие списки с единичным и множественным выбором,
-                кнопка, ссылка на страницу 2">
-    <meta name="keywords" content="текстовые поля ввода, многострочные поля ввода, чекбоксы, радио-баттоны, выпадающие
-                списки с единичным и множественным выбором, кнопка, ссылка на другую страницу, text, password, radio-buttons,
-                checkbox, submit, file, hidden">
+    <meta name="description" content="Страница с формой, в которой есть элементы: текстовые поля ввода, многострочные поля ввода, чекбоксы, радио-баттоны, выпадающие списки с единичным и множественным выбором, кнопка, ссылка на страницу 2">
+    <meta name="keywords" content="текстовые поля ввода, многострочные поля ввода, чекбоксы, радио-баттоны, выпадающие списки с единичным и множественным выбором, кнопка, ссылка на другую страницу, text, password, radio-buttons, checkbox, submit, file, hidden">
     <title>Заявка на участие в выставке кошек</title>
 </head>
 <body>
@@ -23,13 +19,12 @@
         <br>
         <br>
 
-        <label for="pet_nickname">Кличка кота/кошки&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label for="pet_nickname">Кличка кота/кошки &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
         <input type="text" id="pet_nickname" name="petNickname" placeholder="Кличка">
         <br>
         <br>
 
-        <label for="sex">Пол питомца&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label for="sex">Пол питомца &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</label>
         <select name="sex" id="sex">
             <option selected disabled>Выберите пол питомца</option>
             <option value="0">кот</option>
@@ -63,7 +58,8 @@
         <br>
 
         <label for="pet_food_brands">Корма каких из перечисленных ниже брендов вы покупаете?</label>
-        <br>Удерживая клавишу "Ctrl" вы можете выбрать несколько вариантов.
+        <br>
+        Удерживая клавишу "Ctrl" вы можете выбрать несколько вариантов.
         <br>
         <br>
         <select id="pet_food_brands" name="petFoodBrands" multiple>
@@ -78,7 +74,9 @@
         <br>
 
         <p><label for="pet_features">Расскажите о необычных способностях вашего питомца</label></p>
-        <p><textarea name="petFeatures" id="pet_features" rows="7" cols="50"></textarea></p>
+        <textarea name="petFeatures" id="pet_features" rows="7" cols="50"></textarea>
+        <br>
+        <br>
 
         <label for="photo">Вы можете выслать нам фото вашего любимца</label>
         <br>
@@ -87,21 +85,24 @@
         <br>
         <br>
 
-        <button type="submit"><img src="https://img.freepik.com/free-vector/paw-print-gradient-blue_78370-7636.jpg?
-                    semt=ais_hybrid" width="30" height="30" style="vertical-align: middle" alt="Лапа кошки">
-            Отправить данные организаторам выставки
+        <button type="submit">
+            <img src="https://img.freepik.com/free-vector/paw-print-gradient-blue_78370-7636.jpg? semt=ais_hybrid"
+                 width="30" height="30" style="vertical-align: middle" alt="Лапа">
+        Отправить данные организаторам выставки
         </button>
         <br>
         <br>
 
-        <button type="reset"><img src="https://s3.stroi-news.ru/img/krestik-kartinki-1.png" width="30" height="30"
-                                  style="vertical-align: middle" alt="Лапа кошки">Очистить форму заявки
+        <button type="reset">
+            <img src="https://s3.stroi-news.ru/img/krestik-kartinki-1.png" width="30" height="30"
+                 style="vertical-align: middle" alt="Reset">
+        Очистить форму заявки
         </button>
     </form>
     <br>
     <br>
 
-    <a href="index_2.html">Перейти на партнёрскую страницу</a>
+    <a href="index2.html">Перейти на партнёрскую страницу</a>
     <br>
     <br>
 </body>
