@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>CSS Form</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="base">
+    <div class="heading">
+        <div>Отправить заявку</div>
+    </div>
+
+    <form class="form" action="https://localhost:8080" method="post">
+        <label class="label" for="client-name">Ваше имя</label>
+        <input class="text_cell" type="text" id="client-name" placeholder="Ваше имя *">
+
+        <label class="label" for="phone-number">Ваш номер телефона</label>
+        <input class="text_cell" type="text" id="phone-number" placeholder="Ваш номер телефона *">
+
+        <label class="label" for="email-vk">Ваш email или VK</label>
+        <input class="text_cell" type="text" id="email-vk" placeholder="Ваш email или VK *">
+
+        <label class="label" for="comment">Комментарий</label>
+        <textarea class="text_field" id="comment" placeholder="Комментарий (не обязательно)"></textarea>
+
+        <div class="instruction"><span>Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру</span>
+        </div>
+
+        <button class="submitButton" type="submit">Отправить заявку</button>
+    </form>
+</div>
+</body>
+</html>
