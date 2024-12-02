@@ -3,8 +3,8 @@
 }
 
 :root {
-    font-family: Calibri, serif;
-    background-color: rgb(205, 215, 229);
+    font-family: Calibri, sans-serif;
+    background-color: #cdd7e5; /* rgb(205, 215, 229) */
 }
 
 .base {
@@ -12,14 +12,13 @@
     max-width: 742px;
     width: 100%;
     height: 520px;
-    color: rgb(100, 100, 100);
+    color: #646464; /* rgb(100, 100, 100) */
 }
 
 .heading {
-    float: left;
     width: 100%;
     height: 11.1538462%;
-    background-color: rgb(255, 255, 255);
+    background-color: #ffffff; /* rgb(255, 255, 255) */
     padding-top: 2.4%;
     padding-left: 2.7%;
     font-size: 33px;
@@ -27,12 +26,12 @@
 }
 
 .form {
-    float: left;
     top: 11.1538462%;
     width: 100%;
     height: 88.8461538%;
     font-size: 16px;
-    background-color: rgb(254, 238, 213);
+    font-weight: lighter;
+    background-color: #feeed5; /* rgb(254, 238, 213) */
 }
 
 .label {
@@ -45,43 +44,37 @@
 }
 
 .text_cell {
-    float: left;
     margin-left: 2.7%;
     width: 94.3396226415094%;
     height: 7.3%;
     border: none;
     padding-left: 1.5%;
-    font-weight: lighter;
 }
 
 .text_field {
-    float: left;
     margin-left: 2.7%;
     width: 94.3396226415094%;
     height: 24%;
     border: none;
     padding-left: 1.5%;
     padding-top: 1.2vh;
-    font-weight: lighter;
 }
 
 .instruction {
-    float: left;
     width: 100%;
     height: 8.5%;
     padding-top: 2.3vh;
     padding-left: 2.7%;
-    font-weight: lighter;
 }
 
-.submitButton {
+.submit_button {
     position: absolute;
     right: 2.83018867924528%;
     bottom: 2.6%;
     width: 20.2%;
     height: 6.1538462%;
     font-weight: bold;
-    color: rgb(255, 255, 255);
-    background-color: rgb(56, 141, 178);
-    border: 1px solid rgb(75, 136, 157);
+    color: #ffffff; /* rgb(255, 255, 255) */
+    background-color: #388db2; /* rgb(56, 141, 178) */
+    border: 1px solid #4b889d; /* rgb(75, 136, 157) */
 }

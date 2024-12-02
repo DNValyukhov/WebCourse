@@ -2,34 +2,34 @@
     box-sizing: border-box;
 }
 
-.canvas {
+.content {
     padding: 11px 15px 1px;
     max-width: 747px;
-    background-color: rgb(254, 238, 213);
+    font-family: Arial, sans-serif;
+    color: #646464; /* rgb(100, 100, 100) */
+    background-color: #feeed5; /* rgb(254, 238, 213) */
 }
 
-.content {
+.items_list {
     line-height: 16px;
 }
 
 .title {
     font-size: 28px;
-    font-family: Arial, serif;
-    color: rgb(100, 100, 100);
 }
 
-.itemTitle {
+.list_item {
+    margin-top: 13px;
+}
 
+.list_item_name {
+    color: #378db2; /* rgb(55, 141, 178) */
     font-size: 17px;
-    font-family: Arial, serif;
-    color: rgb(78, 136, 158);
     font-weight: bold;
 }
 
-.value {
-    font-size: 17px;
-    font-family: "Arial", serif;
-    color: rgb(112, 96, 81);
+.list_item_value {
+    font-weight: normal;
 }
 
 .description {
@@ -37,8 +37,6 @@
     margin-bottom: 5px;
     line-height: 23px;
     text-indent: 16px;
-    color: rgb(112, 96, 81);
     font-size: 15px;
-    font-family: "Arial", serif;
     text-align: justify;
 }
