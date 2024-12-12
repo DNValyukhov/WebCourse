@@ -3,19 +3,22 @@
 }
 
 .content {
-    padding: 11px 15px 1px;
+    padding: 1px 14px 5px 13px;
     max-width: 747px;
     font-family: Arial, sans-serif;
     color: #646464; /* rgb(100, 100, 100) */
     background-color: #feeed5; /* rgb(254, 238, 213) */
 }
 
-.items_list {
-    line-height: 16px;
+.title {
+    margin-top: 9px;
+    margin-bottom: 14px;
+    font-size: 28px;
+    font-weight: normal;
 }
 
-.title {
-    font-size: 28px;
+.items_list {
+    line-height: 16px;
 }
 
 .list_item {
@@ -32,11 +35,16 @@
     font-weight: normal;
 }
 
-.description {
-    margin-top: 5px;
-    margin-bottom: 5px;
+.description_block {
+    margin-top: 8px;
+    margin-bottom: 1px;
     line-height: 23px;
     text-indent: 16px;
     font-size: 15px;
     text-align: justify;
+}
+
+.description {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
