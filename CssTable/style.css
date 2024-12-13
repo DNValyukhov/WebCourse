@@ -5,54 +5,51 @@
 .table {
     max-width: 860px;
     width: 100%;
-    height: 312px;
-    background-color: #eeeeee; /* rgb(238, 238, 238) */
+    background-color: #eee; /* rgb(238, 238, 238) */
     border-collapse: collapse;
     font-family: Calibri, sans-serif;
     font-weight: normal;
     font-size: 24px;
     text-align: left;
-    text-indent: 5%;
 }
 
-.table_head {
-    color: #d6f3ff; /* rgb(214, 243, 255) */
+.table thead {
+    color: #fff; /* rgb(255, 255, 255) */
     background-color: #3598dc; /* rgb(53, 152, 220) */
-    height: 15.7377049180328%;
 }
 
-.column_head {
-    border: 1px solid #afd7f0; /* rgb(175, 215, 240) */
-    position: relative;
-}
-
-.column_head div {
-    position: absolute;
-    left: 4.5%;
-    bottom: 18%;
+.table th {
+    font-weight: normal;
     white-space: nowrap;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    border: 1px solid #afd7f0; /* rgb(175, 215, 240) */
 }
 
-.column1_name {
-    width: 20.3508771929825vw
+.column_first_name {
+    width: 20.3508771929825%;
 }
 
-.column2_name {
-    width: 20.3508771929825vw
+.column_last_name {
+    width: 20.3508771929825%;
 }
 
-.column3_name {
-    width: 36.0233918128655vw
+.column_job_title {
+    width: 36.0233918128655%;
 }
 
-.column4_name {
-    width: 23.2748538011696vw
+.column_twitter {
+    width: 23.2748538011696%;
 }
 
-.table_body tr:nth-child(2n) {
-    background-color: #ffffff; /* rgb(255, 255, 255) */
+.table tbody tr:nth-child(even) {
+    background-color: #fff; /* rgb(255, 255, 255) */
 }
 
-.table_body td {
+.table td {
+    padding-top: 13px;
+    padding-bottom: 11px;
+    padding-left: 10px;
     border: 1px solid #cfcfcf; /* rgb(207, 207, 207) */
 }
