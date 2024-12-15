@@ -5,7 +5,7 @@
 .table {
     max-width: 860px;
     width: 100%;
-    background-color: #eee; /* rgb(238, 238, 238) */
+    background-color: #eee;
     border-collapse: collapse;
     font-family: Calibri, sans-serif;
     font-weight: normal;
@@ -14,42 +14,37 @@
 }
 
 .table thead {
-    color: #fff; /* rgb(255, 255, 255) */
-    background-color: #3598dc; /* rgb(53, 152, 220) */
+    color: #fff;
+    background-color: #3598dc;
 }
 
 .table th {
     font-weight: normal;
-    white-space: nowrap;
-    padding-top: 12px;
-    padding-bottom: 8px;
-    padding-left: 10px;
-    border: 1px solid #afd7f0; /* rgb(175, 215, 240) */
+    padding: 12px 10px 8px;
+    border: 1px solid #afd7f0;
 }
 
 .column_first_name {
-    width: 20.3508771929825%;
+    width: 20.35%;
 }
 
 .column_last_name {
-    width: 20.3508771929825%;
+    width: 20.35%;
 }
 
 .column_job_title {
-    width: 36.0233918128655%;
+    width: 36.02%;
 }
 
 .column_twitter {
-    width: 23.2748538011696%;
+    width: 23.27%;
 }
 
 .table tbody tr:nth-child(even) {
-    background-color: #fff; /* rgb(255, 255, 255) */
+    background-color: #fff;
 }
 
 .table td {
-    padding-top: 13px;
-    padding-bottom: 11px;
-    padding-left: 10px;
-    border: 1px solid #cfcfcf; /* rgb(207, 207, 207) */
+    padding: 13px 10px 11px;
+    border: 1px solid #cfcfcf;
 }
