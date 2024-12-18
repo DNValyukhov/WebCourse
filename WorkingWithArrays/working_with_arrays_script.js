@@ -1,27 +1,25 @@
 (function () {
-    "use strict"
+    "use strict";
 
-// Создание исходного массива чисел
-    let numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    // Создание исходного массива чисел
+    const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
-    console.log(`Исходный массив:
-` + numbersArray.join(", "));
-
-// Вспомогательный метод проверки массивов переданных в функцию
-    function checkArray(array) {
+    // Вспомогательный метод проверки массивов переданных в функцию
+    function checkIsArray(array) {
         if (!Array.isArray(array)) {
-            console.log("Ошибка. В метод в качестве аргумента передан не массив.");
-            return false;
+            throw new Error("В метод в качестве аргумента передан не массив.");
         }
 
         return true;
     }
 
-    checkArray(numbersArray);
+    checkIsArray(numbersArray);
 
-// Сортировка массива по убыванию
+    console.log("Исходный массив: \n" + numbersArray.join(", "));
+
+    // Сортировка массива по убыванию
     function sortArrayInDescendingOrder(array) {
-        if (!checkArray(array)) {
+        if (!checkIsArray(array)) {
             return false;
         }
 
@@ -30,95 +28,77 @@
     }
 
     if (sortArrayInDescendingOrder(numbersArray)) {
-        console.log(`Массив, отсортированный по убыванию:
-` + numbersArray.join(", "));
+        console.log("Массив, отсортированный по убыванию: \n" + numbersArray.join(", "));
     }
 
-// Возврат массива в исходное состояние (сортировка массива по возрастанию)
+    // Возврат массива в исходное состояние (сортировка массива по возрастанию)
     function sortArrayInAscendingOrder(array) {
-        if (!checkArray(array)) {
-            return;
-        }
+        checkIsArray(array);
 
         array.sort((n1, n2) => n1 - n2);
     }
 
     sortArrayInAscendingOrder(numbersArray);
 
-// Подмассив из первых 5 элементов исходного массива
-    function createSubarrayFromFirstFiveElements(array) {
-        if (!checkArray(array)) {
-            return;
+    // Подмассив из первых firstElementsNumber элементов исходного массива
+    function createSubarrayFromFirstFiveElements(array, firstElementsNumber) {
+        checkIsArray(array);
+
+        if (array.length < firstElementsNumber) {
+            firstElementsNumber = array.length;
         }
 
-        if (array.length < 5) {
-            console.log("Невозможно создать подмассив из первых 5 элементов исходного массива, т.к. количество элементов " +
-                "в исходном массиве \"" + array.length + "\".");
-            return;
-        }
-
-        return array.slice(0, 5);
+        return array.slice(0, firstElementsNumber);
     }
 
-    console.log(`Подмассив из первых 5 элементов исходного массива:
-` + createSubarrayFromFirstFiveElements(numbersArray).join(", "));
+    console.log("Подмассив из первых 5 элементов исходного массива: \n" + createSubarrayFromFirstFiveElements(numbersArray, 5).join(", "));
 
-// Подмассив из последних 5 элементов исходного массива
-    function createSubarrayFromLastFiveElements(array) {
-        if (!checkArray(array)) {
-            return;
+    // Подмассив из последних 5 элементов исходного массива
+    function createSubarrayFromLastFiveElements(array, lastElementsNumber) {
+        checkIsArray(array);
+
+        if (array.length < lastElementsNumber) {
+            lastElementsNumber = array.length;
         }
 
-        if (array.length < 5) {
-            console.log("Ошибка. Попытка создать подмассив из последних 5 элементов исходного массива, т.к. количество элементов в исходном массиве \"" + array.length + "\".");
-            return;
-        }
-
-        return array.slice(array.length - 5, array.length);
+        return array.slice(array.length - lastElementsNumber);
     }
 
-    console.log(`Подмассив из последних 5 элементов исходного массива:
-` + createSubarrayFromLastFiveElements(numbersArray).join(", "));
+    console.log("Подмассив из последних 5 элементов исходного массива: \n" + createSubarrayFromLastFiveElements(numbersArray, 5).join(", "));
 
-// Создание массива чисел от 1 до 100
+    // Создание массива чисел от 1 до 100
     // Метод создания массива с числовыми значениями от заданного начального до заданного последнего, расположенными в порядке возрастания
-    function createNumbersArrayFromStartValueToEndValue(startValue, endValue) {
+    function createNumbersArrayFromStartNumberToEndNumber(startNumber, endNumber) {
         if (arguments.length < 2) {
-            console.log("Ошибка. Количество аргументов, переданных в метод создания массива чисел, меньше двух.");
-            return;
+            throw new Error("Количество аргументов, переданных в метод создания массива чисел, меньше двух.");
         }
 
-        if (typeof (startValue) !== "number" || typeof (endValue) !== "number") {
-            console.log("Ошибка. Аргументы, переданные в метод создания массива чисел, не являются числами.");
-            return;
+        if (typeof startNumber !== "number" || typeof endNumber !== "number") {
+            throw new Error("Аргументы, переданные в метод создания массива чисел, не являются числами.");
         }
 
-        if (startValue > endValue) {
-            console.log("Ошибка. В метод создания массива чисел передано начальное значение \"" + startValue + "\", которое " +
-                "больше конечного \"" + endValue + "\".");
-            return;
+        if (startNumber > endNumber) {
+            throw new Error("В метод создания массива чисел передано начальное значение \"" + startNumber + "\", которое " +
+                "больше конечного \"" + endNumber + "\".");
         }
 
         const array = [];
 
-        for (let i = startValue; i <= endValue; ++i) {
+        for (let i = startNumber; i <= endNumber; ++i) {
             array.push(i);
         }
 
         return array;
     }
 
-    const array = createNumbersArrayFromStartValueToEndValue(1, 100);
+    const array = createNumbersArrayFromStartNumberToEndNumber(1, 100);
 
-// Создание массива квадратов четных чисел из переданного массива
-    function createArrayOfSquaresOfEvenNumbersFromArray(array) {
-        if (!checkArray(array)) {
-            return;
-        }
+    // Создание массива квадратов четных чисел из переданного массива
+    function createSquaresArrayFromEvenNumbersFromArray(array) {
+        checkIsArray(array);
 
-        return array.filter(e => e % 2 === 0).map((e) => e * e);
+        return array.filter(e => e % 2 === 0).map(e => e * e);
     }
 
-    console.log(`Массив квадратов чётных чисел в диапазоне от 1 до 100:
-` + createArrayOfSquaresOfEvenNumbersFromArray(array).join(", "));
+    console.log("Массив квадратов чётных чисел в диапазоне от 1 до 100: \n" + createSquaresArrayFromEvenNumbersFromArray(array).join(", "));
 })();
