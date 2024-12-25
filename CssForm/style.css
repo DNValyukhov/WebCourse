@@ -3,39 +3,27 @@
 }
 
 .content {
-    max-width: 742px;
-    width: 100%;
-    font-family: Arial, serif;
-    color: #646464; /* rgb(100, 100, 100) */
-}
-
-.clearfix ::after {
-    content: "";
-    display: block;
-    clear: both;
+    font-family: Arial, sans-serif;
+    color: #646464;
 }
 
 .content h1 {
-    z-index: 1;
-    margin-top: -1px;
-    padding: 22px 21px 4px 21px;
-    width: 100%;
+    display: table-cell;
+    vertical-align: top;
+    max-width: 742px;
+    padding: 21px 21px 4px;
     font-size: 29px;
     font-weight: normal;
-    background-color: #fff; /* rgb(255, 255, 255) */
+    background-color: #fff;
 }
 
 .form {
-    padding-left: 21px;
-    padding-top: 57px;
+    max-width: 742px;
     padding-right: 21px;
+    padding-left: 21px;
     font-size: 14px;
     font-weight: lighter;
-    background-color: #feeed5; /* rgb(254, 238, 213) */
-}
-
-.content h1, .form {
-    position: absolute;
+    background-color: #feeed5;
 }
 
 .label {
@@ -44,36 +32,42 @@
     font-weight: bold;
 }
 
+.first-label {
+    padding-top: 16px;
+}
+
 .text {
+    display: block;
     padding: 9px 12px;
     border: none;
     width: 100%;
 }
 
-#comment {
-    vertical-align: text-top;
-    padding-top: 8px;
+.comment {
     padding-bottom: 72px;
-    max-width: 700px;
+    max-width: 100%;
 }
 
 .description {
     font-weight: lighter;
 }
 
+.buttons-block {
+    text-align: right;
+}
+
 .submit_button {
     margin-top: 4px;
     margin-bottom: 12px;
-    margin-left: 550px;
-    width: 150px;
-    height: 32px;
+    padding: 7px 12px;
+    white-space: nowrap;
     font-weight: bold;
-    color: #fff; /* rgb(255, 255, 255) */
-    background-color: #388db2; /* rgb(56, 141, 178) */
-    border: 1px solid #4b889d; /* rgb(75, 136, 157) */
+    color: #fff;
+    background-color: #388db2;
+    border: 1px solid #4b889d;
 }
 
-[type="submit"]:hover {
-    background-color: blue;
+.submit_button:hover {
+    background-color: #2070b0;
     cursor: pointer;
 }
