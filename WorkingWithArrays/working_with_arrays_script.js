@@ -2,7 +2,7 @@
     "use strict";
 
     // Создание исходного массива чисел
-    const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
     // Вспомогательный метод проверки массивов переданных в функцию
     function checkIsArray(array) {
@@ -20,13 +20,11 @@
         checkIsArray(array);
 
         array.sort((n1, n2) => n2 - n1);
-
-        return true;
     }
 
-    if (sortArrayInDescendingOrder(numbersArray)) {
-        console.log("Массив, отсортированный по убыванию:\n" + numbersArray.join(", "));
-    }
+    sortArrayInDescendingOrder(numbersArray);
+
+    console.log("Массив, отсортированный по убыванию:\n" + numbersArray.join(", "));
 
     // Возврат массива в исходное состояние (сортировка массива по возрастанию)
     function sortArrayInAscendingOrder(array) {
@@ -38,30 +36,30 @@
     sortArrayInAscendingOrder(numbersArray);
 
     // Подмассив из первых elementsQuantity элементов исходного массива
-    function getSubarrayFromFirstElements(array, elementsQuantity) {
+    function getFirstElementsSubarray(array, elementsQuantity) {
         checkIsArray(array);
 
         return array.slice(0, elementsQuantity);
     }
 
-    console.log("Подмассив из первых 5 элементов исходного массива:\n" + getSubarrayFromFirstElements(numbersArray, 5).join(", "));
+    const firstElementsQuantity = 5;
+
+    console.log(`Подмассив из первых \"${firstElementsQuantity}\" элементов исходного массива:\n` + getFirstElementsSubarray(numbersArray, firstElementsQuantity).join(", "));
 
     // Подмассив из последних 5 элементов исходного массива
-    function getSubarrayFromLastElements(array, elementsQuantity) {
+    function getLastElementsSubarray(array, elementsQuantity) {
         checkIsArray(array);
 
-        return array.slice(array.length <= elementsQuantity ? 0 : array.length - elementsQuantity);
+        return array.slice(-elementsQuantity);
     }
 
-    console.log("Подмассив из последних 5 элементов исходного массива:\n" + getSubarrayFromLastElements(numbersArray, 5).join(", "));
+    const lastElementsQuantity = 5;
+
+    console.log(`Подмассив из последних \"${lastElementsQuantity}\" элементов исходного массива:\n` + getLastElementsSubarray(numbersArray, lastElementsQuantity).join(", "));
 
     // Сумма элементов массива, которые являются чётными числами
     function getEvenNumbersSum(array) {
-        let sum = 0;
-
-        array.filter(e => e % 2 === 0).forEach(e => sum += e);
-
-        return sum;
+        return array.filter(e => e % 2 === 0).reduce((e1, e2) => e1 + e2, 0);
     }
 
     console.log("Сумма чётных элементов массива: " + getEvenNumbersSum(numbersArray));
