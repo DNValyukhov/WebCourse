@@ -59,7 +59,7 @@
 
     // Сумма элементов массива, которые являются чётными числами
     function getEvenNumbersSum(array) {
-        return array.filter(e => e % 2 === 0).reduce((e1, e2) => e1 + e2, 0);
+        return array.filter(e => e % 2 === 0).reduce((sum, e) => sum + e, 0);
     }
 
     console.log("Сумма чётных элементов массива: " + getEvenNumbersSum(numbersArray));
