@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Перевод температур</title>
+    <link rel="stylesheet" href="temperature_conversion_css.css">
+    <script src="reset.css" defer></script>
+    <script src="temperature_conversion_javascript.js" defer></script>
+</head>
+<body>
+<div id="temperature-converter">
+    <h1>Конвертер температур</h1>
+
+    <div>
+        <div id="celsius-block">
+            <label class="label" id="celsius-temperature-label" for="celsius-temperature-field">Введите температуру в
+                градусах Цельсия</label>
+            <input class="temperature-field" id="celsius-temperature-field" type="text">
+            <div id="warning-information"></div>
+        </div>
+    </div>
+
+    <div id="buttons-block">
+        <button id="convert-button">Конвертировать</button>
+        <button id="reset-button">Сброс</button>
+    </div>
+</div>
+</body>
+</html>
