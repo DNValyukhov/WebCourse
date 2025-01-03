@@ -66,16 +66,21 @@
     // Нахождение страны с максимальным количеством городов
     function getCountriesWithMaxCitiesQuantity(countries) {
         if (!Array.isArray(countries)) {
-            throw new Error("В метод нахождения страны с максимальным количеством городов вместо массива передан аргумент типа: " + typeof (countries));
+            throw new Error("В метод нахождения страны с максимальным количеством городов вместо массива передан аргумент типа: " + typeof countries);
         }
 
-        let countriesWithMaxCitiesQuantity = {};
+        let countriesWithMaxCitiesQuantity;
 
-        if (countries.length !== 0) {
+        if (countries.length <= 1) {
+            countriesWithMaxCitiesQuantity = countries;
+        } else {
+            let maxCitiesQuantity = countries[0].cities.length;
 
-            countries.sort((country1, country2) => country2.cities.length - country1.cities.length);
-
-            const maxCitiesQuantity = countries[0].cities.length;
+            for (let country of countries) {
+                if (country.cities.length > maxCitiesQuantity) {
+                    maxCitiesQuantity = country.cities.length;
+                }
+            }
 
             countriesWithMaxCitiesQuantity = countries.filter(country => country.cities.length === maxCitiesQuantity);
         }
@@ -98,32 +103,29 @@
     console.log("");
 
     // Получение объекта с информацией по всем странам такого вида: ключ – название страны, значение – суммарная численность по стране
-    function getCountryNamesWithPopulations(countries) {
+    function getCountriesNamesWithPopulations(countries) {
         if (!Array.isArray(countries)) {
-            throw new Error("В метод создания объекта с названиями стран и численностью населения в них вместо массива передан аргумент типа: " + typeof (countries));
+            throw new Error("В метод создания объекта с названиями стран и численностью населения в них вместо массива передан аргумент типа: " + typeof countries);
         }
 
-        const countryNamesWithPopulations = {};
+        const countriesNamesWithPopulations = {};
 
-        if (countries.length !== 0) {
-
-            for (const country of countries) {
-                countryNamesWithPopulations[country.name] = country.cities.reduce((population, city) => population + city.population, 0);
-            }
+        for (const country of countries) {
+            countriesNamesWithPopulations[country.name] = country.cities.reduce((population, city) => population + city.population, 0);
         }
 
-        return countryNamesWithPopulations;
+        return countriesNamesWithPopulations;
     }
 
-    const countryNamesWithPopulations = getCountryNamesWithPopulations(countries);
+    const countriesNamesWithPopulations = getCountriesNamesWithPopulations(countries);
 
     console.log("Содержимое полученного объекта с информацией по всем странам вида: ключ – название страны, значение – численность населения по стране:");
 
-    if (Object.keys(countryNamesWithPopulations).length === 0) {
+    if (Object.keys(countriesNamesWithPopulations).length === 0) {
         console.log("Объект пуст, т.к. пуст массив стран!");
     } else {
-        for (const countryName in countryNamesWithPopulations) {
-            console.log("%s   %d", countryName, countryNamesWithPopulations[countryName]);
+        for (const countryName in countriesNamesWithPopulations) {
+            console.log("%s   %d", countryName, countriesNamesWithPopulations[countryName]);
         }
     }
 })();
