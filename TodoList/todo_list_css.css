@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+}
+
+.content {
+    width: 800px;
+    font-family: Calibri, sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#new-todo-text-field-label {
+    display: block;
+    padding-bottom: 5px;
+}
+
+#new-todo-text-field, #add-button {
+    display: inline;
+}
+
+#new-todo-text-field {
+    font-size: 18px;
+    max-width: 560px;
+    width: 100%;
+    padding-left: 10px;
+}
+
+#add-button {
+    font-family: Calibri, sans-serif;
+    font-weight: normal;
+    font-size: 18px;
+    height: 45px;
+    width: 150px;
+    position: relative;
+    top: -20px;
+}
+
+#add-button:hover {
+    font-weight: bold;
+    background-color: #ffffdf;
+    border: #000 1px solid;
+}
+
+#warning-massage {
+    font-size: 20px;
+    color: #f00;
+    margin-top: -10px;
+    margin-bottom: 40px;
+}
+
+.notes-table {
+    margin-top: 20px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.notes-table-head {
+    color: #000;
+    background-color: #afd7f0;
+}
+
+.column-notes {
+    max-width: 60%;
+    width: 60%;
+}
+
+.column-action-1, .column-action-2 {
+    width: 20%;
+}
+
+th, td {
+    font-size: 18px;
+    text-align: center;
+    vertical-align: center;
+    border: #000 1px solid;
+}
+
+th {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.todo-text-field {
+    font-size: 18px;
+    padding-left: 10px;
+    text-align: start;
+    width: 100%;
+    resize: vertical;
+    min-height: 40px;
+    white-space: break-spaces;
+}
+
+.background-color-gray {
+    background-color: #efefef;
+}
+
+.background-color-white {
+    background-color: #fff;
+}
+
+.edit-toggle, .delete-toggle, .save-toggle, .cancel-toggle {
+    font-size: 18px;
+    align-content: center;
+    background-color: #efefef;
+    cursor: pointer;
+}
+
+.edit-toggle:hover {
+    font-weight: bold;
+    background-color: #ffffdf;
+}
+
+.delete-toggle:hover {
+    font-weight: bold;
+    background-color: #ffffdf;
+}
+
+.save-toggle:hover {
+    font-weight: bold;
+    background-color: #ffffdf;
+}
+
+.cancel-toggle:hover {
+    font-weight: bold;
+    background-color: #ffffdf;
+}
