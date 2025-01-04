@@ -69,23 +69,15 @@
             throw new Error("В метод нахождения страны с максимальным количеством городов вместо массива передан аргумент типа: " + typeof countries);
         }
 
-        let countriesWithMaxCitiesQuantity;
+        if (countries.length !== 0) {
+            let countryWithMaxCitiesQuantity = countries.reduce((countryWithMaxCitiesQuantity, country) => (countryWithMaxCitiesQuantity.cities.length >= country.cities.length) ? countryWithMaxCitiesQuantity : country, countries[0]);
 
-        if (countries.length <= 1) {
-            countriesWithMaxCitiesQuantity = countries;
-        } else {
-            let maxCitiesQuantity = countries[0].cities.length;
+            const maxCountryCitiesQuantity = countryWithMaxCitiesQuantity.cities.length;
 
-            for (let country of countries) {
-                if (country.cities.length > maxCitiesQuantity) {
-                    maxCitiesQuantity = country.cities.length;
-                }
-            }
-
-            countriesWithMaxCitiesQuantity = countries.filter(country => country.cities.length === maxCitiesQuantity);
+            return countries.filter(country => country.cities.length === maxCountryCitiesQuantity);
         }
 
-        return countriesWithMaxCitiesQuantity;
+        return countries;
     }
 
     const countriesWithMaxCitiesQuantity = getCountriesWithMaxCitiesQuantity(countries);
