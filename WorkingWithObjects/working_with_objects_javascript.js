@@ -69,7 +69,7 @@
             throw new Error("В метод нахождения страны с максимальным количеством городов вместо массива передан аргумент типа: " + typeof countries);
         }
 
-        let maxCountryCitiesQuantity = countries.reduce((maxCountryCitiesQuantity, country) => (maxCountryCitiesQuantity >= country.cities.length) ? maxCountryCitiesQuantity : country.cities.length, 0);
+        const maxCountryCitiesQuantity = countries.reduce((maxCountryCitiesQuantity, country) => Math.max(maxCountryCitiesQuantity, country.cities.length), 0);
 
         return countries.filter(country => country.cities.length === maxCountryCitiesQuantity);
     }
