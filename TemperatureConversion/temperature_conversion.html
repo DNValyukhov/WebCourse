@@ -3,26 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Перевод температур</title>
-    <link rel="stylesheet" href="temperature_conversion_css.css">
-    <script src="reset.css" defer></script>
-    <script src="temperature_conversion_javascript.js" defer></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="temperature_conversion.css">
+    <script src="temperature_conversion.js" defer></script>
 </head>
 <body>
-<div id="temperature-converter">
-    <h1>Конвертер температур</h1>
+<div class="temperature-converter">
+    <h1 class="application-name">Конвертер температур</h1>
 
-    <div>
-        <div id="celsius-block">
-            <label class="label" id="celsius-temperature-label" for="celsius-temperature-field">Введите температуру в
-                градусах Цельсия</label>
-            <input class="temperature-field" id="celsius-temperature-field" type="text">
-            <div id="warning-information"></div>
+    <div class="temperature-block">
+        <div>
+            <label class="label" id="celsius-temperature-label" for="celsius-temperature-field">
+                Введите температуру в градусах Цельсия
+            </label>
+            <input class="temperature-field celsius-temperature-field" id="celsius-temperature-field" type="text">
+            <div class="warning-information" id="warning-information"></div>
         </div>
     </div>
+    <div class="temperature-block" id="kelvin-block">
+        <label class="label" for="kelvin-temperature-field">
+            Температура в градусах Кельвина:
+        </label>
+        <input class="temperature-field" id="kelvin-temperature-field" type="text" readonly>;
+    </div>
+    <div class="temperature-block" id="fahrenheit-block">
+        <label class="label" for="fahrenheit-temperature-field">
+            Температура в градусах Фаренгейта:
+        </label>
+        <input class="temperature-field" id="fahrenheit-temperature-field" type="text" readonly>
+    </div>
 
-    <div id="buttons-block">
-        <button id="convert-button">Конвертировать</button>
-        <button id="reset-button">Сброс</button>
+    <div class="buttons-block">
+        <button class="convert-button" id="convert-button" type="button">Конвертировать</button>
+        <button class="reset-button" id="reset-button" type="button">Сброс</button>
     </div>
 </div>
 </body>
