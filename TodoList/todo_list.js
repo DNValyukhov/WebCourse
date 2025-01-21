@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (newTodoText.length === 0) {
             warningMassage.textContent = "Необходимо заполнить поле заметки";
-            newTodoTextField.classList.add("red-boarder");
+            newTodoTextField.classList.add("red-border");
             return;
         }
 
         newTodoTextField.value = "";
-        newTodoTextField.classList.remove("red-boarder");
+        newTodoTextField.classList.remove("red-border");
 
         warningMassage.textContent = "";
 
@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 todoTextField = todoRow.querySelector(".todo-text-field");
                 todoTextField.value = newTodoText;
+
                 const initialTodoTextFieldValue = newTodoText;
 
                 todoRow.querySelector(".save-button").addEventListener("click", function () {
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     newTodoTextField.addEventListener("focus", function () {
-        newTodoTextField.classList.remove("red-boarder");
+        newTodoTextField.classList.remove("red-border");
         warningMassage.textContent = "";
     });
 

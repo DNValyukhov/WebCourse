@@ -31,7 +31,7 @@
     vertical-align: top;
 }
 
-.red-boarder {
+.red-border {
     border: #f00 2px solid;
 }
 
@@ -100,6 +100,10 @@
     min-height: 50px;
     border: none;
     white-space: break-spaces;
+}
+
+.todo-text-field:focus {
+    outline: none;
 }
 
 .background-color-gray {
