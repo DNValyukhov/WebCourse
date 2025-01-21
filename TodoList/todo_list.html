@@ -4,32 +4,33 @@
     <meta charset="UTF-8">
     <title>Todo List</title>
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="todo_list_css.css">
-    <script defer src="todo_list_javascript.js"></script>
+    <link rel="stylesheet" href="todo_list.css">
+    <script defer src="todo_list.js"></script>
 </head>
-<body class="content">
-<h1>TODO List</h1>
+<body>
+<div class="content">
+    <h1 class="title">TODO List</h1>
 
-<div>
     <div class="input-block">
-        <div><label id="new-todo-text-field-label" for="new-todo-text-field">Введите текст заметки</label></div>
-        <textarea id="new-todo-text-field"></textarea>
-        <button class="button" id="add-button">Добавить</button>
+        <div><label class="new-todo-text-field-label" for="new-todo-text-field">Введите текст заметки</label></div>
+        <div>
+            <textarea class="new-todo-text-field" id="new-todo-text-field"></textarea>
+            <button class="button add-button" id="add-button">Добавить</button>
+        </div>
+        <div class="warning-massage" id="warning-massage"></div>
     </div>
-    <div id="warning-massage"></div>
+
+    <table class="notes-table" id="notes-table">
+        <thead class="notes-table-head" id="notes-table-head">
+        <tr class="column-titles-row">
+            <th class="column-notes">Заметки</th>
+            <th class="column-action-1"></th>
+            <th class="column-action-2"></th>
+        </tr>
+        </thead>
+        <tbody class="notes-table-body" id="notes-table-body">
+        </tbody>
+    </table>
 </div>
-
-<table class="notes-table" id="notes-table">
-    <thead class="notes-table-head" id="notes-table-head">
-    <tr class="column-titles-row">
-        <th class="column-notes">Заметки</th>
-        <th class="column-action-1"></th>
-        <th class="column-action-2"></th>
-    </tr>
-    </thead>
-    <tbody class="notes-table-body" id="notes-table-body">
-    </tbody>
-</table>
-
 </body>
 </html>
