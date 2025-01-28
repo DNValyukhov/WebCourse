@@ -34,7 +34,11 @@
     background-color: #fff;
 }
 
-.celsius-temperature-field {
+.margin-bottom-5 {
+    margin-bottom: 5px;
+}
+
+.margin-bottom-35 {
     margin-bottom: 35px;
 }
 
@@ -47,7 +51,7 @@
     text-align: center;
     margin: 0 auto 30px;
     font-size: 18px;
-    color: #000;
+    color: #f00;
 }
 
 .warning-information.large-font {
@@ -69,6 +73,14 @@
     margin: 40px auto;
 }
 
+.margin-top-47 {
+    margin-top: 47px;
+}
+
+.margin-top-73 {
+    margin-top: 73px;
+}
+
 .convert-button, .reset-button {
     text-align: center;
     max-width: 180px;
@@ -77,16 +89,15 @@
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .convert-button:hover {
-    cursor: pointer;
     font-weight: bolder;
     background: #e0e0e0;
 }
 
 .reset-button:hover {
-    cursor: pointer;
     font-weight: bolder;
     background: #e0e0e0;
 }

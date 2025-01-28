@@ -1,6 +1,7 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
+    const temperatureForm = document.getElementById("temperature-form");
     const celsiusTemperatureLabel = document.getElementById("celsius-temperature-label");
     const celsiusTemperatureField = document.getElementById("celsius-temperature-field");
 
@@ -11,36 +12,50 @@ document.addEventListener("DOMContentLoaded", function () {
     const fahrenheitTemperatureField = document.getElementById("fahrenheit-temperature-field");
 
     const warningInformation = document.getElementById("warning-information");
-    const initialWarningString = `Введите цифрами температуру в градусах Цельсия 
-    для перевода в градусы Кельвина и Фаренгейта`;
+    const initialWarningString = "";
     warningInformation.textContent = initialWarningString;
 
-    const convertButton = document.getElementById("convert-button");
+    const buttonsBlock = document.getElementById("buttons-block");
     const resetButton = document.getElementById("reset-button");
 
     kelvinBlock.classList.add("invisible");
     fahrenheitBlock.classList.add("invisible");
 
     function setVisibleMode() {
-        const convert = function () {
+        buttonsBlock.classList.add("margin-top-73");
+
+        temperatureForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
             const celsiusTemperature = Number.parseFloat(celsiusTemperatureField.value.trim());
 
             celsiusTemperatureField.classList.remove("red-border");
+            celsiusTemperatureField.classList.add("margin-bottom-35");
             warningInformation.classList.remove("invisible", "large-font");
+            buttonsBlock.classList.remove("margin-top-47");
+            buttonsBlock.classList.remove("margin-top-73");
 
             kelvinBlock.classList.add("invisible");
             fahrenheitBlock.classList.add("invisible");
 
             if (isNaN(celsiusTemperature)) {
                 celsiusTemperatureField.classList.add("red-border");
+                celsiusTemperatureField.classList.remove("margin-bottom-35");
+                celsiusTemperatureField.classList.add("margin-bottom-5");
                 warningInformation.classList.add("large-font");
                 warningInformation.textContent = "(требуется ввести число)";
+                buttonsBlock.classList.remove("margin-top-47");
+                buttonsBlock.classList.remove("margin-top-73");
                 return;
             }
 
             if (celsiusTemperature < -273.15) {
                 celsiusTemperatureField.classList.add("red-border");
+                celsiusTemperatureField.classList.remove("margin-bottom-35");
+                celsiusTemperatureField.classList.add("margin-bottom-5");
                 warningInformation.textContent = "Введённое число должно быть не меньше -273.15";
+                buttonsBlock.classList.remove("margin-top-73");
+                buttonsBlock.classList.add("margin-top-47");
                 return;
             }
 
@@ -57,14 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             fahrenheitTemperatureField.value = fahrenheitTemperature;
             fahrenheitBlock.classList.remove("invisible");
-        };
-
-        convertButton.addEventListener("click", convert);
-
-        celsiusTemperatureField.addEventListener("keypress", function (event) {
-            if (event.key === `Enter`) {
-                convert();
-            }
         });
 
         celsiusTemperatureField.addEventListener("input", function () {
