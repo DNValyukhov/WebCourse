@@ -11,6 +11,13 @@
     font-size: 18px;
 }
 
+@media screen and (max-width: 800px) {
+    .content {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+}
+
 .title {
     font-size: 28px;
     font-weight: bold;
@@ -106,6 +113,11 @@
     outline: none;
 }
 
+.todo-text-field::placeholder {
+    color: #f00;
+    font-weight: lighter;
+}
+
 .background-color-gray {
     background-color: #efefef;
 }
@@ -131,6 +143,10 @@
 .button:hover {
     font-weight: bold;
     background-color: #ffffdf;
+}
+
+.button.not-active {
+    display: none;
 }
 
 .add-button {

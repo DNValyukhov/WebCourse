@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const notesTableBody = document.getElementById("notes-table-body");
     const addButton = document.getElementById("add-button");
 
-    document.querySelector("#add-button").addEventListener("click", function () {
+    addButton.addEventListener("click", function () {
         let newTodoText = newTodoTextField.value.trim();
 
         if (newTodoText.length === 0) {
@@ -26,18 +26,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function setViewMode() {
             todoRow.innerHTML = `
-                <td class="text-cell"><textarea class="todo-text-field background-color-gray"></textarea></td>
+                <td class="text-cell"><textarea class="todo-text-field background-color-gray" readonly></textarea></td>
                 <td class="button-cell"><button class="button edit-button">Редактировать</button></td>
                 <td class="button-cell"><button class="button delete-button">Удалить</button></td>
             `;
 
             let todoTextField = todoRow.querySelector(".todo-text-field");
             todoTextField.value = newTodoText;
-            todoTextField.readOnly = true;
 
             todoRow.querySelector(".edit-button").addEventListener("click", function () {
                 todoRow.innerHTML = `
-                    <td class="text-cell"><textarea class="todo-text-field background-color-white"></textarea></td>
+                    <td class="text-cell"><textarea class="todo-text-field background-color-white" placeholder="Это поле не должно быть пустым!"></textarea></td>
                     <td class="button-cell"><button class="button save-button">Сохранить</button></td>
                     <td class="button-cell"><button class="button cancel-button">Отмена</button></td>
                 `;
@@ -45,22 +44,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 todoTextField = todoRow.querySelector(".todo-text-field");
                 todoTextField.value = newTodoText;
 
-                const initialTodoTextFieldValue = newTodoText;
+                const saveButton = todoRow.querySelector(".save-button");
 
-                todoRow.querySelector(".save-button").addEventListener("click", function () {
-                    newTodoText = todoTextField.value.trim();
-
-                    if (newTodoText.length === 0) {
-                        newTodoText = initialTodoTextFieldValue;
+                todoTextField.addEventListener("input", function () {
+                    if (todoTextField.value.trim().length === 0) {
+                        saveButton.classList.add("not-active");
+                    } else {
+                        saveButton.classList.remove("not-active");
                     }
+                });
+
+                saveButton.addEventListener("click", function () {
+                    newTodoText = todoTextField.value.trim();
 
                     setViewMode();
                 });
 
                 todoTextField.addEventListener("keydown", function (event) {
-                    if (event.key === `Enter` && event.ctrlKey === true) {
-                        const clickEvent = new Event("click");
-                        todoRow.querySelector(".save-button").dispatchEvent(clickEvent);
+                    if (event.key === "Enter" && event.ctrlKey === true && !saveButton.classList.contains("not-active")) {
+                        saveButton.click();
                     }
                 });
 
@@ -77,15 +79,20 @@ document.addEventListener("DOMContentLoaded", function () {
         setViewMode();
     });
 
+    newTodoTextField.addEventListener("input", function () {
+        newTodoTextField.classList.remove("red-border");
+        warningMassage.textContent = "";
+    });
+
     newTodoTextField.addEventListener("focus", function () {
         newTodoTextField.classList.remove("red-border");
         warningMassage.textContent = "";
     });
 
     newTodoTextField.addEventListener("keydown", function (event) {
-        if (event.key === `Enter` && event.ctrlKey === true) {
-            const clickEvent = new Event("click");
-            addButton.dispatchEvent(clickEvent);
+        if (event.key === "Enter" && event.ctrlKey === true) {
+            newTodoTextField.blur();
+            addButton.click();
         }
     });
 });
