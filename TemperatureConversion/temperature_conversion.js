@@ -22,40 +22,40 @@ document.addEventListener("DOMContentLoaded", function () {
     fahrenheitBlock.classList.add("invisible");
 
     function setVisibleMode() {
-        buttonsBlock.classList.add("margin-top-73");
+        kelvinBlock.classList.add("invisible");
+        fahrenheitBlock.classList.add("invisible");
+
+        celsiusTemperatureField.classList.add("celsiusTemperatureFieldMarginTopInitial");
+
+        buttonsBlock.classList.add("buttonsBlockMarginTopInitial");
 
         temperatureForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const celsiusTemperature = Number.parseFloat(celsiusTemperatureField.value.trim());
-
             celsiusTemperatureField.classList.remove("red-border");
-            celsiusTemperatureField.classList.add("margin-bottom-35");
+            celsiusTemperatureField.classList.add("celsiusTemperatureFieldMarginBottomCorrectValue");
             warningInformation.classList.remove("invisible", "large-font");
-            buttonsBlock.classList.remove("margin-top-47");
-            buttonsBlock.classList.remove("margin-top-73");
+            buttonsBlock.classList.remove("buttonsBlockMarginTopInitial", "buttonsBlockMarginTopTemperatureLessMinimum");
 
-            kelvinBlock.classList.add("invisible");
-            fahrenheitBlock.classList.add("invisible");
-
-            if (isNaN(celsiusTemperature)) {
-                celsiusTemperatureField.classList.add("red-border");
-                celsiusTemperatureField.classList.remove("margin-bottom-35");
-                celsiusTemperatureField.classList.add("margin-bottom-5");
+            if (isNaN(Number(celsiusTemperatureField.value.trim())) || celsiusTemperatureField.value.trim() === "") {
+                celsiusTemperatureField.classList.add("red-border", "celsiusTemperatureFieldMarginBottomNaN");
+                celsiusTemperatureField.classList.remove("celsiusTemperatureFieldMarginTopInitial", "celsiusTemperatureFieldMarginBottomCorrectValue");
                 warningInformation.classList.add("large-font");
                 warningInformation.textContent = "(требуется ввести число)";
-                buttonsBlock.classList.remove("margin-top-47");
-                buttonsBlock.classList.remove("margin-top-73");
+                kelvinBlock.classList.add("invisible");
+                fahrenheitBlock.classList.add("invisible");
+                buttonsBlock.classList.remove("buttonsBlockMarginTopTemperatureLessMinimum", "buttonsBlockMarginTopInitial");
                 return;
             }
 
+            const celsiusTemperature = Number.parseFloat(celsiusTemperatureField.value.trim());
+
             if (celsiusTemperature < -273.15) {
-                celsiusTemperatureField.classList.add("red-border");
-                celsiusTemperatureField.classList.remove("margin-bottom-35");
-                celsiusTemperatureField.classList.add("margin-bottom-5");
+                celsiusTemperatureField.classList.add("red-border", "celsiusTemperatureFieldMarginBottomNaN");
+                celsiusTemperatureField.classList.remove("celsiusTemperatureFieldMarginTopInitial", "celsiusTemperatureFieldMarginBottomCorrectValue");
                 warningInformation.textContent = "Введённое число должно быть не меньше -273.15";
-                buttonsBlock.classList.remove("margin-top-73");
-                buttonsBlock.classList.add("margin-top-47");
+                buttonsBlock.classList.remove("buttonsBlockMarginTopInitial");
+                buttonsBlock.classList.add("buttonsBlockMarginTopTemperatureLessMinimum");
                 return;
             }
 

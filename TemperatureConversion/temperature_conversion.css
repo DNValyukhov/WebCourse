@@ -34,11 +34,15 @@
     background-color: #fff;
 }
 
-.margin-bottom-5 {
+.celsiusTemperatureFieldMarginTopInitial {
+    margin-top: 1px;
+}
+
+.celsiusTemperatureFieldMarginBottomNaN {
     margin-bottom: 5px;
 }
 
-.margin-bottom-35 {
+.celsiusTemperatureFieldMarginBottomCorrectValue {
     margin-bottom: 35px;
 }
 
@@ -73,11 +77,11 @@
     margin: 40px auto;
 }
 
-.margin-top-47 {
-    margin-top: 47px;
+.buttonsBlockMarginTopTemperatureLessMinimum {
+    margin-top: 48px;
 }
 
-.margin-top-73 {
+.buttonsBlockMarginTopInitial {
     margin-top: 73px;
 }
 
@@ -92,12 +96,7 @@
     cursor: pointer;
 }
 
-.convert-button:hover {
-    font-weight: bolder;
-    background: #e0e0e0;
-}
-
-.reset-button:hover {
+.convert-button:hover, .reset-button:hover {
     font-weight: bolder;
     background: #e0e0e0;
 }
