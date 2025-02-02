@@ -42,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 celsiusTemperatureField.classList.remove("celsiusTemperatureFieldMarginTopInitial", "celsiusTemperatureFieldMarginBottomCorrectValue");
                 warningInformation.classList.add("large-font");
                 warningInformation.textContent = "(требуется ввести число)";
+                kelvinBlock.classList.add("invisible");
+                fahrenheitBlock.classList.add("invisible");
                 buttonsBlock.classList.remove("buttonsBlockMarginTopTemperatureLessMinimum", "buttonsBlockMarginTopInitial");
                 return;
             }
