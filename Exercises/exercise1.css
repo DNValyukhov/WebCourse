@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+.text:focus::placeholder {
+    color: blue;
+    animation: fadeInOut 1.5s step-end infinite;
+}
+
+/* Анимация мерцания */
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 1; /* Элемент виден */
+    }
+
+    50% {
+        opacity: 0; /* Элемент мерцает и становится невидимым! */
+    }
+}
+
+.text::placeholder {
+    color: gray;
+    animation: fadeInOut 1.5s step-end infinite; /* Позволяет тексту постоянно мигать */
+}
+
+.content-1 {
+    max-width: 800px;
+    width: 100%;
+    max-height: 800px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 80px 80px;
+    grid-auto-columns: 60px;
+    grid-auto-flow: row;
+    grid-template-rows: 50px 140px;
+    grid-auto-rows: 60px;
+    gap: 20px;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.content-2 {
+    display: grid;
+    grid-template-columns: [columns-start-line] 150px [columns-2-line] auto 40% [columns-end-line];
+    grid-template-rows: [rows-start-line] 250px [rows-2-line] 10vw [rows-3-line] 15rem [rows-end-line];
+}
+
+.item {
+    width: 3vw;
+    height: 3vw;
+    background-color: #f00;
+    border: #b22222 3px solid;
+    opacity: 50%;
+    margin-top: 10px;
+    margin-left: 10px;
+}

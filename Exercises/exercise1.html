@@ -3,31 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Exercise1</title>
+    <script src="jquery-3.7.1.js"></script>
+    <script defer src="exercise1.js"></script>
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="exercise1_style.css">
-    <script defer src="exercise1_javascript.js"></script>
+    <link rel="stylesheet" href="exercise1.css">
 </head>
-
 <body>
-<h1>TODO list</h1>
-
-<!-- onclick="location.href = `https://rambler.ru`" -->
-<button class="go-to-page-button" id="go-to-page-button" type="button">Перейти</button>
-
-<form class = "new-todo-form" id = "new-todo-form">
-    <label class="label" for="new-todo-text-field">Введите текст заметки</label>
-
-    <div>
-        <input class="new-todo-text-field" id="new-todo-text-field" type="text">
-        <div class="error-message">Необходимо задать значение</div>
-    </div>
-
-    <button type="submit">Добавить</button>
+<form onsubmit="alert('submit!');return false">
+    Первый пример: нажмите Enter: <input type="text" class="text" placeholder="Текст"><br>
+    Второй пример: нажмите на кнопку "Отправить": <input type="submit" value="Отправить">
 </form>
 
-<ul class="todo-list">
-</ul>
+<div class="content-1">
+    <div class="item" id="10">1</div>
+    <div class="item" id="20">2</div>
+    <div class="item" id="30">3</div>
+    <div class="item" id="jquery">4</div>
+    <div class="item" id="50">5</div>
+    <div class="item" id="60">6</div>
+    <div class="item" id="70">7</div>
+    <div class="item" id="80">8</div>
+    <div class="item" id="90">9</div>
+    <div class="item" id="100">10</div>
+    <div class="item" id="110">11</div>
+    <div class="item" id="120">12</div>
+</div>
 
+<div class="content-2">
+    <div class="item">
+        <div class="item">
+            <div class="item">
+                <div class="item">
+                    <div class="item">
+                        <div class="item"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
-
 </html>
