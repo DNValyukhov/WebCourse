@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 todoTextField.addEventListener("keydown", function (event) {
-                    if (event.key === "Enter" && event.ctrlKey === true && !saveButton.classList.contains("not-active")) {
+                    if (event.key === "Enter" && event.ctrlKey && !saveButton.classList.contains("not-active")) {
                         saveButton.click();
                     }
                 });
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     newTodoTextField.addEventListener("keydown", function (event) {
-        if (event.key === "Enter" && event.ctrlKey === true) {
+        if (event.key === "Enter" && event.ctrlKey) {
             newTodoTextField.blur();
             addButton.click();
         }

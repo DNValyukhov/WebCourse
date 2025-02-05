@@ -77,9 +77,7 @@
     width: 20%;
 }
 
-.notes-table th, td {
-    text-align: center;
-    vertical-align: center;
+.notes-table th, .notes-table td {
     border: #000 1px solid;
 }
 
