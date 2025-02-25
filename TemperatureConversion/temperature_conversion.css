@@ -29,25 +29,18 @@
     display: block;
     margin: 0 auto 20px;
     width: 150px;
+    height: 37px;
     font-size: 26px;
     text-align: center;
     background-color: #fff;
 }
 
-.celsiusTemperatureFieldMarginTopInitial {
-    margin-top: 1px;
-}
-
-.celsiusTemperatureFieldMarginBottomNaN {
+.celsius-temperature-field-margin-bottom-nan {
     margin-bottom: 5px;
 }
 
-.celsiusTemperatureFieldMarginBottomCorrectValue {
-    margin-bottom: 35px;
-}
-
-.invisible {
-    display: none;
+.celsius-temperature-field-margin-bottom-correct-value {
+    margin-bottom: 20px;
 }
 
 .warning-information {
@@ -77,12 +70,12 @@
     margin: 40px auto;
 }
 
-.buttonsBlockMarginTopTemperatureLessMinimum {
+.buttons-block-margin-top-temperature-less-minimum {
     margin-top: 48px;
 }
 
-.buttonsBlockMarginTopInitial {
-    margin-top: 73px;
+.buttons-block-margin-top-initial {
+    margin-top: 71px;
 }
 
 .convert-button, .reset-button {

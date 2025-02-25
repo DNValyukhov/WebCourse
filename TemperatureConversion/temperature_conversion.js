@@ -12,66 +12,65 @@ document.addEventListener("DOMContentLoaded", function () {
     const fahrenheitTemperatureField = document.getElementById("fahrenheit-temperature-field");
 
     const warningInformation = document.getElementById("warning-information");
-    const initialWarningString = "";
-    warningInformation.textContent = initialWarningString;
 
     const buttonsBlock = document.getElementById("buttons-block");
     const resetButton = document.getElementById("reset-button");
 
-    kelvinBlock.classList.add("invisible");
-    fahrenheitBlock.classList.add("invisible");
-
     function setVisibleMode() {
-        kelvinBlock.classList.add("invisible");
-        fahrenheitBlock.classList.add("invisible");
+        warningInformation.hidden = true;
+        kelvinBlock.hidden = true;
+        fahrenheitBlock.hidden = true;
 
-        celsiusTemperatureField.classList.add("celsiusTemperatureFieldMarginTopInitial");
+        celsiusTemperatureField.classList.add("celsius-temperature-field-margin-top-initial");
 
-        buttonsBlock.classList.add("buttonsBlockMarginTopInitial");
+        buttonsBlock.classList.add("buttons-block-margin-top-initial");
 
         temperatureForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
             celsiusTemperatureField.classList.remove("red-border");
-            celsiusTemperatureField.classList.add("celsiusTemperatureFieldMarginBottomCorrectValue");
-            warningInformation.classList.remove("invisible", "large-font");
-            buttonsBlock.classList.remove("buttonsBlockMarginTopInitial", "buttonsBlockMarginTopTemperatureLessMinimum");
+            celsiusTemperatureField.classList.add("celsius-temperature-field-margin-bottom-correct-value");
+            warningInformation.classList.remove("large-font");
+            warningInformation.hidden = false;
+            buttonsBlock.classList.remove("buttons-block-margin-top-initial", "buttons-block-margin-top-temperature-less-minimum");
 
             if (isNaN(Number(celsiusTemperatureField.value.trim())) || celsiusTemperatureField.value.trim() === "") {
-                celsiusTemperatureField.classList.add("red-border", "celsiusTemperatureFieldMarginBottomNaN");
-                celsiusTemperatureField.classList.remove("celsiusTemperatureFieldMarginTopInitial", "celsiusTemperatureFieldMarginBottomCorrectValue");
+                celsiusTemperatureField.classList.add("red-border", "celsius-temperature-field-margin-bottom-nan");
+                celsiusTemperatureField.classList.remove("celsius-temperature-field-margin-top-initial", "celsius-temperature-field-margin-bottom-correct-value");
                 warningInformation.classList.add("large-font");
                 warningInformation.textContent = "(требуется ввести число)";
-                kelvinBlock.classList.add("invisible");
-                fahrenheitBlock.classList.add("invisible");
-                buttonsBlock.classList.remove("buttonsBlockMarginTopTemperatureLessMinimum", "buttonsBlockMarginTopInitial");
+                kelvinBlock.hidden = true;
+                fahrenheitBlock.hidden = true;
+                buttonsBlock.classList.remove("buttons-block-margin-top-initial", "buttons-block-margin-top-temperature-less-minimum");
                 return;
             }
 
             const celsiusTemperature = Number.parseFloat(celsiusTemperatureField.value.trim());
 
             if (celsiusTemperature < -273.15) {
-                celsiusTemperatureField.classList.add("red-border", "celsiusTemperatureFieldMarginBottomNaN");
-                celsiusTemperatureField.classList.remove("celsiusTemperatureFieldMarginTopInitial", "celsiusTemperatureFieldMarginBottomCorrectValue");
+                celsiusTemperatureField.classList.add("red-border", "celsius-temperature-field-margin-bottom-nan");
+                celsiusTemperatureField.classList.remove("celsius-temperature-field-margin-top-initial", "celsius-temperature-field-margin-bottom-correct-value");
                 warningInformation.textContent = "Введённое число должно быть не меньше -273.15";
-                buttonsBlock.classList.remove("buttonsBlockMarginTopInitial");
-                buttonsBlock.classList.add("buttonsBlockMarginTopTemperatureLessMinimum");
+                kelvinBlock.hidden = true;
+                fahrenheitBlock.hidden = true;
+                buttonsBlock.classList.remove("buttons-block-margin-top-initial");
+                buttonsBlock.classList.add("buttons-block-margin-top-temperature-less-minimum");
                 return;
             }
 
             celsiusTemperatureLabel.textContent = "Температура в градусах Цельсия:";
+            celsiusTemperatureField.value = (Math.round(celsiusTemperature * 100) / 100).toFixed(2);
 
-            warningInformation.textContent = "";
-            warningInformation.classList.add("invisible");
+            warningInformation.hidden = true;
 
             const kelvinTemperature = celsiusTemperature + 273.15;
             const fahrenheitTemperature = celsiusTemperature * 1.8 + 32;
 
-            kelvinTemperatureField.value = kelvinTemperature;
-            kelvinBlock.classList.remove("invisible");
+            kelvinTemperatureField.value = (Math.round(kelvinTemperature * 100) / 100).toFixed(2);
+            kelvinBlock.hidden = false;
 
-            fahrenheitTemperatureField.value = fahrenheitTemperature;
-            fahrenheitBlock.classList.remove("invisible");
+            fahrenheitTemperatureField.value = (Math.round(fahrenheitTemperature * 100) / 100).toFixed(2);
+            fahrenheitBlock.hidden = false;
         });
 
         celsiusTemperatureField.addEventListener("input", function () {
@@ -83,12 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
             celsiusTemperatureField.value = "";
             celsiusTemperatureField.classList.remove("red-border");
 
-            warningInformation.textContent = initialWarningString;
-            warningInformation.classList.add("invisible");
+            warningInformation.hidden = true;
             warningInformation.classList.remove("large-font");
-
-            kelvinBlock.classList.add("invisible");
-            fahrenheitBlock.classList.add("invisible");
 
             setVisibleMode();
         });

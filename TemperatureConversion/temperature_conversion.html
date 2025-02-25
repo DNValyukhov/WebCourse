@@ -18,16 +18,16 @@
                     Введите температуру в градусах Цельсия
                 </label>
                 <input class="temperature-field" id="celsius-temperature-field" type="text">
-                <div class="warning-information" id="warning-information"></div>
+                <div class="warning-information" id="warning-information" hidden></div>
             </div>
         </div>
-        <div class="temperature-block" id="kelvin-block">
+        <div class="temperature-block" id="kelvin-block" hidden>
             <label class="label" for="kelvin-temperature-field">
                 Температура в градусах Кельвина:
             </label>
             <input class="temperature-field" id="kelvin-temperature-field" type="text" readonly>
         </div>
-        <div class="temperature-block" id="fahrenheit-block">
+        <div class="temperature-block" id="fahrenheit-block" hidden>
             <label class="label" for="fahrenheit-temperature-field">
                 Температура в градусах Фаренгейта:
             </label>
@@ -36,7 +36,7 @@
 
         <div class="buttons-block" id="buttons-block">
             <input type="submit" class="convert-button" value="Конвертировать">
-            <button class="reset-button" id="reset-button" type="button">Сброс</button>
+            <button type="button" class="reset-button" id="reset-button">Сброс</button>
         </div>
     </form>
 </div>
