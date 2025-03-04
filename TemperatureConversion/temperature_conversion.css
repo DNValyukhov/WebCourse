@@ -67,15 +67,19 @@
     display: flex;
     justify-content: space-evenly;
     width: 90%;
-    margin: 40px auto;
+    margin: 71px auto 40px;
+}
+
+.buttons-block-margin-top-correct-temperature {
+    margin-top: 50px;
 }
 
 .buttons-block-margin-top-temperature-less-minimum {
     margin-top: 48px;
 }
 
-.buttons-block-margin-top-initial {
-    margin-top: 71px;
+.buttons-block-margin-top-temperature-not-number {
+    margin-top: 40px;
 }
 
 .convert-button, .reset-button {

@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const temperatureForm = document.getElementById("temperature-form");
     const celsiusTemperatureLabel = document.getElementById("celsius-temperature-label");
     const celsiusTemperatureField = document.getElementById("celsius-temperature-field");
+    celsiusTemperatureField.value = "";
 
     const kelvinBlock = document.getElementById("kelvin-block");
     const kelvinTemperatureField = document.getElementById("kelvin-temperature-field");
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         celsiusTemperatureField.classList.add("celsius-temperature-field-margin-top-initial");
 
-        buttonsBlock.classList.add("buttons-block-margin-top-initial");
+        buttonsBlock.classList.remove("buttons-block-margin-top-temperature-less-minimum", "buttons-block-margin-top-temperature-not-number", "buttons-block-margin-top-correct-temperature");
 
         temperatureForm.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -32,16 +33,16 @@ document.addEventListener("DOMContentLoaded", function () {
             celsiusTemperatureField.classList.add("celsius-temperature-field-margin-bottom-correct-value");
             warningInformation.classList.remove("large-font");
             warningInformation.hidden = false;
-            buttonsBlock.classList.remove("buttons-block-margin-top-initial", "buttons-block-margin-top-temperature-less-minimum");
 
             if (isNaN(Number(celsiusTemperatureField.value.trim())) || celsiusTemperatureField.value.trim() === "") {
                 celsiusTemperatureField.classList.add("red-border", "celsius-temperature-field-margin-bottom-nan");
-                celsiusTemperatureField.classList.remove("celsius-temperature-field-margin-top-initial", "celsius-temperature-field-margin-bottom-correct-value");
+                celsiusTemperatureField.classList.remove("celsius-temperature-field-margin-top-initial", "celsius-temperature-field-margin-bottom-correct-value", "buttons-block-margin-top-correct-temperature");
                 warningInformation.classList.add("large-font");
                 warningInformation.textContent = "(требуется ввести число)";
                 kelvinBlock.hidden = true;
                 fahrenheitBlock.hidden = true;
-                buttonsBlock.classList.remove("buttons-block-margin-top-initial", "buttons-block-margin-top-temperature-less-minimum");
+                buttonsBlock.classList.remove("buttons-block-margin-top-temperature-less-minimum");
+                buttonsBlock.classList.add("buttons-block-margin-top-temperature-not-number");
                 return;
             }
 
@@ -49,28 +50,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (celsiusTemperature < -273.15) {
                 celsiusTemperatureField.classList.add("red-border", "celsius-temperature-field-margin-bottom-nan");
-                celsiusTemperatureField.classList.remove("celsius-temperature-field-margin-top-initial", "celsius-temperature-field-margin-bottom-correct-value");
+                celsiusTemperatureField.classList.remove("celsius-temperature-field-margin-top-initial", "celsius-temperature-field-margin-bottom-correct-value", "buttons-block-margin-top-correct-temperature");
                 warningInformation.textContent = "Введённое число должно быть не меньше -273.15";
                 kelvinBlock.hidden = true;
                 fahrenheitBlock.hidden = true;
-                buttonsBlock.classList.remove("buttons-block-margin-top-initial");
+                buttonsBlock.classList.remove("buttons-block-margin-top-temperature-not-number");
                 buttonsBlock.classList.add("buttons-block-margin-top-temperature-less-minimum");
                 return;
             }
 
             celsiusTemperatureLabel.textContent = "Температура в градусах Цельсия:";
-            celsiusTemperatureField.value = (Math.round(celsiusTemperature * 100) / 100).toFixed(2);
+            celsiusTemperatureField.value = celsiusTemperature.toFixed(2);
 
             warningInformation.hidden = true;
 
             const kelvinTemperature = celsiusTemperature + 273.15;
-            const fahrenheitTemperature = celsiusTemperature * 1.8 + 32;
-
-            kelvinTemperatureField.value = (Math.round(kelvinTemperature * 100) / 100).toFixed(2);
+            kelvinTemperatureField.value = kelvinTemperature.toFixed(2);
             kelvinBlock.hidden = false;
 
-            fahrenheitTemperatureField.value = (Math.round(fahrenheitTemperature * 100) / 100).toFixed(2);
+            const fahrenheitTemperature = celsiusTemperature * 1.8 + 32;
+            fahrenheitTemperatureField.value = fahrenheitTemperature.toFixed(2);
             fahrenheitBlock.hidden = false;
+
+            buttonsBlock.classList.add("buttons-block-margin-top-correct-temperature");
         });
 
         celsiusTemperatureField.addEventListener("input", function () {
